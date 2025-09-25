@@ -1,0 +1,16 @@
+ssh -i AWSkey.pem ubuntu@ec2-3-21-245-159.us-east-2.compute.amazonaws.com
+cd adapter/
+cd nanda_adapter/
+cd examples/
+pip install -r requirements.txt
+
+sudo certbot certonly --standalone -d shuber.shop
+sudo cp -L /etc/letsencrypt/live/shuber.shop/fullchain.pem .
+sudo cp -L /etc/letsencrypt/live/shuber.shop/privkey.pem .
+sudo chown $USER:$USER fullchain.pem privkey.pem
+chmod 600 fullchain.pem privkey.pem
+
+export ANTHROPIC_API_KEY="key"
+export DOMAIN_NAME="shuber.shop"
+nohup python3 langchain_pirate.py > out.log 2>&1 &
+cat out.log 
