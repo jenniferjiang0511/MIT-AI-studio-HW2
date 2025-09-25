@@ -2,7 +2,7 @@
 MIT AI studio class HW2
 
 My agent(s): 
-1) I used the example LangChain Agent first, which
+1) I used the example LangChain Agent first
 2) I then also tried to register my own agent, which can generate the latest fun facts based on my interests. 
    
 Any feedback you have from using the adapter
