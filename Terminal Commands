@@ -14,5 +14,9 @@ chmod 600 fullchain.pem privkey.pem
 
 export ANTHROPIC_API_KEY="key"
 export DOMAIN_NAME="shuber.shop"
+
 nohup python3 langchain_pirate.py > out.log 2>&1 &
 cat out.log 
+
+nohup python3 hw2main.py > out.log 2>&1 &
+cat out.log
