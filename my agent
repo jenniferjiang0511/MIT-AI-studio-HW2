@@ -6,7 +6,7 @@ from langchain_anthropic import ChatAnthropic
 
 def create_crewai():
     llm = ChatAnthropic(
-        api_key=os.getenv("ANTHROPIC_KEY"),
+        api_key=os.getenv("ANTHROPIC_KEY"), #I set it as an env variable on my laptop
         model="claude-sonnet-4-20250514"
     )
 
@@ -24,14 +24,14 @@ def create_crewai():
     def crewai_improvement(message_text: str) -> str:
         task = Task(
             description ="Introduce yourself to the class",
-            expected_output = "In three to four sentences, describe yourself and add in a fun fact. The fun fact should be discovered recently, use the internet to find it. "
+            expected_output = "In three to four sentences, describe yourself and add in a fun fact. The fun fact should be discovered recently. "
                       "The task should be accurate and interesting to the field of interest.",
             agent = MyAgent
         )
 
         crew = Crew(agents=[MyAgent], tasks=[task])
         result = crew.kickoff()
-        return str(result)
+        return result
 
     return crewai_improvement
 
