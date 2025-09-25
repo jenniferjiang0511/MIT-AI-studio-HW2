@@ -1,3 +1,5 @@
+#here are the commands I put in terminal, after setting up EC2 instance
+#My domain name is shuber.shop
 ssh -i AWSkey.pem ubuntu@ec2-3-21-245-159.us-east-2.compute.amazonaws.com
 cd adapter/
 cd nanda_adapter/
